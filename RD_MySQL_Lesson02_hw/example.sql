@@ -13,5 +13,8 @@ INSERT INTO users (name) VALUES ('Anon1');
 INSERT INTO users (name) VALUES ('Anon2');
 INSERT INTO users (name) VALUES ('Anon3');
 SELECT * FROM users;
+SELECT * FROM users WHERE id=3 AND name='Anon3';
+SELECT * FROM users WHERE id=1;
+SELECT * FROM users WHERE id=1 AND name='Anon1';
+SELECT * FROM users WHERE id=3;
 -- mysqldump example > exampledump.sql
-
