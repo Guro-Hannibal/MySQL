@@ -10,7 +10,8 @@ CREATE TABLE employees (
     super_id int UNSIGNED NOT NULL,
     PRIMARY KEY(id)
 );
-DESCRIBE employees;
+
 CALL `new_schema_01`.`table_copy`();
-CALL `new_schema_01`.`dowhile`();
+INSERT INTO employees SELECT * FROM demo PARTITIONS;
 SELECT * FROM employees;
+SELECT COUNT(*)  FROM employees;
