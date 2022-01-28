@@ -28,5 +28,12 @@ CREATE TABLE homework (
 );
 
 
+-- exercise 3
+
+INSERT INTO homework VALUES (1),(1),(2),(4),(0),(5),(3),(6),(7),(8),(9);
+
+
+SELECT abc FROM homework ORDER BY abc = 0, abc;
+
 
 
