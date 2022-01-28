@@ -45,5 +45,14 @@ SELECT abc FROM homework ORDER BY abc = 0, abc;
 -- SELECT * FROM users WHERE birthmonth = 'may';
 
 
+-- exercise 5
+
+
+
+-- SELECT * FROM homework WHERE abc IN (5,1,9) ORDER BY prkey IN (prkey,5,1,9);
+
+
+
+
 
 
