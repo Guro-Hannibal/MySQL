@@ -57,3 +57,8 @@ SELECT abc FROM homework ORDER BY abc = 0, abc;
 
 SELECT (SUM(abc))/(SELECT count(abc) FROM homework) FROM homework AS Answer;
 
+-- exercise 2
+
+-- SELECT SUM(abc) FROM homework WHERE day = 'monday', day = 'tuesday', day = 'wednesday', day = 'thursday', day = 'friday', day = 'saturday', day = 'sunday' AS cm, ct, cw, cth, cf, cst, cs;
+
+
