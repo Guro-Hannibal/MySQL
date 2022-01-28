@@ -37,3 +37,13 @@ SELECT abc FROM homework ORDER BY abc = 0, abc;
 
 
 
+
+-- exercise 4
+
+-- SELECT * FROM users WHERE birthmonth = 'august';
+
+-- SELECT * FROM users WHERE birthmonth = 'may';
+
+
+
+
