@@ -53,6 +53,7 @@ SELECT abc FROM homework ORDER BY abc = 0, abc;
 
 
 
+-- exercise 1
 
-
+SELECT (SUM(abc))/(SELECT count(abc) FROM homework) FROM homework AS Answer;
 
