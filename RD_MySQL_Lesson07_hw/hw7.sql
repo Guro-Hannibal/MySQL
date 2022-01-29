@@ -18,3 +18,8 @@ ON u.id = l.user_id OR u.id = l.target_id
 
 
 
+
+SELECT m.id , m.created_at, COUNT(l.target_id) AS total_likes
+FROM messages m
+JOIN likes l 
+ON l.target_type =  'messages' ORDER BY m.created_at DESC LIMIT 10;
