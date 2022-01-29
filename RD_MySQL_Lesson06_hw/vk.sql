@@ -173,3 +173,49 @@ SELECT count(*) FROM likes WHERE user_id = (SELECT user_id FROM users);
 SELECT * FROM (SELECT * FROM likes WHERE target_type = 'messages' AND target_id = (SELECT id FROM messages ORDER BY created_at DESC LIMIT 10)) AS msg_likes;
 
 
+
+-- SELECT * FROM likes LIMIT 10;
+
+ALTER TABLE profiles ADD FOREIGN KEY (user_id) REFERENCES users(id);
+ALTER TABLE messages ADD FOREIGN KEY (from_user_id) REFERENCES users(id);
+ALTER TABLE messages ADD FOREIGN KEY (to_user_id) REFERENCES users(id);
+ALTER TABLE posts ADD FOREIGN KEY (user_id) REFERENCES users(id);
+ALTER TABLE posts ADD FOREIGN KEY (community_id) REFERENCES communities(id);
+ALTER TABLE likes ADD FOREIGN KEY (user_id) REFERENCES users(id);
+ALTER TABLE cities ADD FOREIGN KEY (country_id) REFERENCES countries(id);
+ALTER TABLE media ADD FOREIGN KEY (user_id) REFERENCES users(id);
+ALTER TABLE media ADD FOREIGN KEY (media_type_id) REFERENCES media_types(id);
+ALTER TABLE communities_users ADD FOREIGN KEY (user_id) REFERENCES users(id);
+ALTER TABLE communities_users ADD FOREIGN KEY (community_id) REFERENCES communities(id);
+ALTER TABLE friendship ADD FOREIGN KEY (user_id) REFERENCES users(id);
+ALTER TABLE friendship ADD FOREIGN KEY (friend_id) REFERENCES users(id);
+ALTER TABLE friendship ADD FOREIGN KEY (friendship_status_id) REFERENCES friendship_statuses(id);
+ALTER TABLE profiles ADD FOREIGN KEY (user_id) REFERENCES users(id);
+ALTER TABLE likes ADD FOREIGN KEY (target_type) REFERENCES target_types(form); -- Not necessory
+ALTER TABLE likes ADD FOREIGN KEY (user_id) REFERENCES posts(user_id);
+ALTER TABLE posts ADD FOREIGN KEY (community_id) REFERENCES communities_users(community_id);
+ALTER TABLE posts ADD FOREIGN KEY (community_id) REFERENCES communities_users(user_id);
+ALTER TABLE posts ADD FOREIGN KEY (user_id) REFERENCES friendship (friend_id);
+ALTER TABLE messages ADD FOREIGN KEY (from_user_id) REFERENCES friendship (friend_id);
+ALTER TABLE messages ADD FOREIGN KEY (to_user_id) REFERENCES friendship (friend_id);
+ALTER TABLE posts ADD FOREIGN KEY (user_id) REFERENCES friendship (friend_id);
+-- ALTER TABLE likes ADD FOREIGN KEY (user_id) REFERENCES messages(from_user_id);
+-- ALTER TABLE likes ADD FOREIGN KEY (user_id) REFERENCES messages(to_user_id);
+ALTER TABLE likes ADD FOREIGN KEY (target_id) REFERENCES media(id);
+ALTER TABLE likes ADD FOREIGN KEY (user_id) REFERENCES media(user_id);
+-- ALTER TABLE likes ADD FOREIGN KEY (target_id) REFERENCES media(id);
+ALTER TABLE communities ADD FOREIGN KEY (creator_user_id) REFERENCES users(id);
+
+ALTER TABLE profiles ADD FOREIGN KEY(country) REFERENCES countries(name); -- Можно и по id установить взаимосвязь
+-- ALTER TABLE countries ADD FOREIGN KEY (name) REFERENCES countries(id);
+-- ALTER TABLE profiles ADD FOREIGN KEY (city) REFERENCES cities(id); "Можно и по id установить взаимосвязь"
+
+
+
+-- 
+-- 
+-- 
+-- DESC profiles;
+-- DESC cities;
+-- 
+-- SELECT name FROM countries WHERE city_name = (SELECT city_name FROM cities WHERE city_id = (SELECT city_id FROM profiles WHERE profile_id = 1));
