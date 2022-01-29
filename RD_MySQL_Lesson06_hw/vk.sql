@@ -165,3 +165,11 @@ SELECT count(*) FROM profiles WHERE user_id = (SELECT user_id FROM likes) AND ge
 SELECT count(gender) FROM (SELECT * FROM profiles WHERE user_id = (SELECT user_id FROM likes)) AS abc WHERE gender = 'F' OR gender = 'M';
 
 
+
+
+
+SELECT count(*) FROM likes WHERE user_id = (SELECT user_id FROM users);
+
+SELECT * FROM (SELECT * FROM likes WHERE target_type = 'messages' AND target_id = (SELECT id FROM messages ORDER BY created_at DESC LIMIT 10)) AS msg_likes;
+
+
